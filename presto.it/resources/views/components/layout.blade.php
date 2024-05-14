@@ -36,7 +36,7 @@
         <div>
             <div class="d-flex text-center">
                 <a type="button" class="btn btn-info" href=/register>Registrati</a>
-                <a type="button" class="btn btn-info mx-4">Accedi</a>
+                <a type="button" class="btn btn-info mx-4" href=/login>Accedi</a>
             </div>
         </div>
     </div>
