@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link active fs-5" aria-current="page" href="#">Home</a>
+            <a class="nav-link active fs-5" aria-current="page" href=/register>Home</a>
             </li>
             <li class="nav-item">
             <a class="nav-link fs-5" href="#">Contatti</a>
@@ -35,8 +35,8 @@
         </div>
         <div>
             <div class="d-flex text-center">
-                <button type="button" class="btn btn-info">Registrati</button>
-                <button type="button" class="btn btn-info mx-4">Accedi</button>
+                <a type="button" class="btn btn-info" href=/register>Registrati</a>
+                <a type="button" class="btn btn-info mx-4">Accedi</a>
             </div>
         </div>
     </div>
