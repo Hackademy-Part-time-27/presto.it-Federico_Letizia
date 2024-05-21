@@ -51,8 +51,23 @@
             <li class=" nav-item dropdown dropdown-menu-end text-end">
                 <a class="nav-link bg-info rounded text-end text-white dropdown-toggle fs-5 font-weight-bold dropdown-menu-end" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ auth()->user()->email }}</a>
-                <ul class="dropdown-menu dropdown-menu-end ms-auto" aria-labelledby="dropdownMenuButton">
+                <ul class="dropdown-menu dropdown-menu-end text-center ms-auto" aria-labelledby="dropdownMenuButton">
                     <li><a class="dropdown-item  font-weight-bold" href="{{ route('adv.create') }}">Crea Annuncio</a></li> 
+                    @if (Auth::user()->is_revisor)
+                        <li>
+                            <a href="{{ route('revisor.index') }}" 
+                                class="nav-link btn btn-info">Zona Revisore
+                                <span>
+                                    {{ App\Models\Adv::toBeRevisionedCount() }}
+                                    <span class="visually-hidden">Da Vedere</span>
+                                </span>
+                            </a>
+                        </li>
+                    @endif
+
+
+
+
                     <li><hr class="dropdown-divider"></a></li>
                     <li>
                         <form action="/logout" method="post">

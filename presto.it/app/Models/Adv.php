@@ -20,4 +20,16 @@ class Adv extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function setAccepted($value)
+    {
+        $this->is_accepted = $value;
+        $this->save();
+        return true;
+    }
+
+    public static function toBeRevisionedCount()
+    {
+        return adv::where('is_accepted', null)->count();
+    }
 }

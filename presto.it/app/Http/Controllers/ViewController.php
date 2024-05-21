@@ -10,7 +10,7 @@ class ViewController extends Controller
 {
     public function welcome()
     {
-        $advs = Adv::take(6)->get()->sortByDesc('created_at');
+        $advs = Adv::where('is_accepted', true)->take(6)->get()->sortByDesc('created_at');
         return view('welcome', compact('advs'));
     }
 

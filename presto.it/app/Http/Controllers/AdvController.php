@@ -19,7 +19,7 @@ class AdvController extends Controller
 
     public function indexAdv()
     {
-        $advs = Adv::paginate(6);
+        $advs = Adv::where('is_accepted', true)->paginate(6);
         return view('adv.index', compact('advs'));
     }
 }

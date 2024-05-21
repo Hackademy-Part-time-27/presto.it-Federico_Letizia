@@ -19,7 +19,7 @@
                             <p class="card-text fs-3">{{ $adv->price }}</p>
                             <div class="d-flex">
                                 <a href="{{ route('adv.show', $adv) }}" class="btn btn-primary mx-2">Vedi Annuncio</a>
-                                <a href="#" class="btn btn-primary mx-3">Categoria: {{ $adv->category? $adv->category->name : 'N/A' }}</a>
+                                <a href="{{ route('categoryShow', ['category'=>$adv->category])}}" class="btn btn-primary mx-3">Categoria: {{$adv->category->name}}</a>
                             </div>
                             <p class="card-footer mt-3">pubblicato il: {{ $adv->created_at->format('d/m/y') }}</p>
                         </div>
@@ -29,4 +29,16 @@
         </div>
     </div>
 
+    <footer>
+        <div class="container-fluid mt-4 bg-dark text-light">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <p>Presto.it</p>
+                    <p>Vuoi lavorare con noi?</p>
+                    <p>Registrati e clicca qui</p>
+                    <a href="{{ route('become.revisor') }}" class="btn btn-warning text-light shadow my-3">Diventa Revisore</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </x-layout>
