@@ -29,14 +29,20 @@
         </div>
     </div>
 
+                @if (session()->has('message'))
+                    <div class="alert alert-success text-center m-5">
+                        <p>{{ session('message') }}</p>
+                    </div>
+                @endif
+
     <footer>
-        <div class="container-fluid mt-4 bg-dark text-light">
+        <div class="container-fluid mt-4 bg-dark text-light position-fixed">
             <div class="row justify-content-center">
                 <div class="col-12 text-center">
                     <p>Presto.it</p>
                     <p>Vuoi lavorare con noi?</p>
                     <p>Registrati e clicca qui</p>
-                    <a href="{{ route('become.revisor') }}" class="btn btn-warning text-light shadow my-3">Diventa Revisore</a>
+                    <a href="{{ route('become.revisor') }}" class="fs-4 btn btn-warning text-light shadow my-3">Diventa Revisore</a>
                 </div>
             </div>
         </div>
