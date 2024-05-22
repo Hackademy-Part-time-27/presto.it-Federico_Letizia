@@ -47,7 +47,9 @@
                         @endforeach
                     </select>
                 </div>
-
+                @error('category')
+                    {{$message}}
+                @enderror
 
                 <div>
 

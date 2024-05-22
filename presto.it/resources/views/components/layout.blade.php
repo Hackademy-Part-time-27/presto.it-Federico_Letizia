@@ -24,9 +24,6 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link active fs-5" aria-current="page" href="/">Home</a>
-            </li>
-            <li class="nav-item">
             <a class="nav-link fs-5" href="#">Contatti</a>
             </li>
             <li class="nav-item">
@@ -46,6 +43,17 @@
             </li>
         </ul>
         </div>
+
+        <form action="{{ route('adv.search') }}" method="get" class="d-flex mx-2">
+            <input  name="searched" class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
+            <button type="submit" class="btn btn-info">Search</button>
+        </form>
+
+
+
+
+
+
         @auth
         <ul class="navbar-nav ms-auto dropdown-menu-end bg-primary-subtle text-end">          
             <li class=" nav-item dropdown dropdown-menu-end text-end">
@@ -64,9 +72,6 @@
                             </a>
                         </li>
                     @endif
-
-
-
 
                     <li><hr class="dropdown-divider"></a></li>
                     <li>

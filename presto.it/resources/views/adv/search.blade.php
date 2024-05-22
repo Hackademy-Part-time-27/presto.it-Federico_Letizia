@@ -32,18 +32,6 @@
                             </div>
                         </div>
                     @endforelse
-                 
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="container justify-content-center">
-    <div class="text-center m-5">
-        <div class="row">
-            <div class="col-12">
-                <div class="row">
-                    {{ $advs->links() }}
                 </div>
             </div>
         </div>

@@ -26,13 +26,17 @@ class CreateAdv extends Component
         {
             $this->validate();
 
-            $category = Category::find($this->category);
-            $adv = $category->advs()->create([
+            // $category = Category::find($this->category);
+            $adv = Adv::create([
                 'title'=>$this->title,
                 'body'=>$this->body,
-                'price'=>$this->price
+                'price'=>$this->price,
+                'category'=>$this->category,
+                'user_id'=>Auth::user()->id,
             ]);
-            Auth::user()->advs()->save($adv);
+            // Auth::user()->advs()->save($adv);
+
+           
 
             session()->flash('message', 'Annuncio inserito con successo');
 

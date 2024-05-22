@@ -18,4 +18,10 @@ class ViewController extends Controller
     {
         return view('categoryShow', compact('category'));
     }
+
+    public function searchAdvs(Request $request)
+    {
+        $advs = Adv::search($request->searched)->where('is_accepted', true)->paginate(6);
+        return view('adv.search', compact('advs'));
+    }
 }

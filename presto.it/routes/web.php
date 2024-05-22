@@ -21,7 +21,7 @@ Route::patch('/rifiuta/annuncio/{adv}', [RevisorController::class, 'rejectAdv'])
 
 Route::get('/rendi/utente/revisore/{user}', [RevisorController::class, 'makeRevisor'])->name('make.revisor');
 
-
+Route::get('/ricerca/annuncio', [ViewController::class, 'searchAdvs'])->name('adv.search');
 
 
 

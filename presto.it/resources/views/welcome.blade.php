@@ -36,7 +36,7 @@
                 @endif
 
     <footer>
-        <div class="container-fluid mt-4 bg-dark text-light position-fixed">
+        <div class="container-fluid mt-4 bg-dark text-light sticky-bottom">
             <div class="row justify-content-center">
                 <div class="col-12 text-center">
                     <p>Presto.it</p>
