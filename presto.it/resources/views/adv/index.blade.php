@@ -2,7 +2,7 @@
     <div class="container-fluid text-center bg-info mb-4">
         <div class="">
             <div class="col-12 p-5">
-                <h1 class="display-2">Annunci</h1>
+                <h1 class="display-2">Tutti gli Annunci</h1>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
         </div>
     </div>
     
-    <div class="container justify-content-center">
+    <div class="container d-flex justify-content-center">
     <div class="text-center m-5">
         <div class="row">
             <div class="col-12">

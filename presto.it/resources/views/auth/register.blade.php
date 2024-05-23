@@ -13,7 +13,7 @@
                     <label for="name">Nome</label>
                     <input type="text" name="name" id="name" class="form-control" value="{{ old('name')}}">
                     @error('name')
-                        <small class="text-danger">Il nome è obbligatorio</small>
+                        <small class="text-danger">{{$message}}</small>
                     @enderror
                 </div>
             </div>
@@ -23,7 +23,7 @@
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" class="form-control">
                     @error('email')
-                        <small class="text-danger">L'email è obbligatoria</small>
+                        <small class="text-danger">{{$message}}</small>
                     @enderror
                 </div>
             </div>
@@ -33,7 +33,7 @@
                     <label for="password">password</label>
                     <input type="password" name="password" id="password" class="form-control">
                     @error('password')
-                        <small class="text-danger">La password è obbligatoria</small>
+                        <small class="text-danger">{{$message}}</small>
                     @enderror
                 </div>
             </div>

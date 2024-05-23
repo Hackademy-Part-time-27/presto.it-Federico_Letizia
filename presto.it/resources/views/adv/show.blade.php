@@ -8,7 +8,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="card">
                 <div id="showCarousel" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
