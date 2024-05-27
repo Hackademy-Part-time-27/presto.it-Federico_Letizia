@@ -23,6 +23,8 @@ Route::get('/rendi/utente/revisore/{user}', [RevisorController::class, 'makeRevi
 
 Route::get('/ricerca/annuncio', [ViewController::class, 'searchAdvs'])->name('adv.search');
 
+Route::POST('/lingua/{lang}', [ViewController::class, 'setLanguage'])->name('setLocale');
+
 
 
 

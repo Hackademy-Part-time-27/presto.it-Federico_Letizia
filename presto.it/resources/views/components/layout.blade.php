@@ -32,10 +32,10 @@
             <a class="nav-link fs-5 hover ms-3" href="#">Contatti</a>
             </li>
             <li class="nav-item mx-1">
-            <a class="nav-link fs-5 hover" href="#">Chi siamo</a>
+            <a class="nav-link fs-5 hover text-center" href="#">Chi siamo</a>
             </li>
             <li class="nav-item mx-1">
-            <a class="nav-link fs-5 hover" href="{{route('adv.index')}}">Tutti gli Annunci</a>
+            <a class="nav-link fs-5 hover text-center" href="{{route('adv.index')}}">Tutti gli Annunci</a>
             </li>
             <li class="nav-item dropdown mx-1">
             <a class="nav-link dropdown-toggle fs-5 hover" href="#" id="categoriesDrop" role="button"
@@ -85,14 +85,25 @@
             
             </li> 
         </ul>
-        <div>
-            @else
+        @else
+        <div>    
             <div class="d-flex text-center">
                 <a type="button" class="btn btn-light hover m-2" href=/register>Registrati</a>
                 <a type="button" class="btn btn-light hover m-2" href=/login>Accedi</a>
             </div>
         </div>
         @endauth
+        <div class="justify-content-center">
+            <div>
+                <x-_locale Lang="it" />
+            </div>
+            <div>
+                <x-_locale Lang="en" />
+            </div>
+            <div>
+                <x-_locale Lang="es" />
+            </div>
+        </div>
     </div>
     </nav>
 

@@ -4,6 +4,10 @@
         <img src="https://static.wixstatic.com/media/91a6c3_f478a2fe11f54d9fa489f4f9735d72ca~mv2.png/v1/fill/w_560,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Utkast-11-3.png" class="img-fluid" alt=""> 
     </h1>
 
+    <div class="text-center display-2">
+        {{__('ui.allAdv') }}
+    </div>
+
     @auth
         <div class="mx-5 text-center">
             <a type="button" class="btn btn-info fs-5 mb-3" href="{{ route('adv.create') }}">Inserisci Annuncio</a>

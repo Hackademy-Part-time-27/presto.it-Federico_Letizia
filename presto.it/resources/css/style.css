@@ -2,3 +2,8 @@
     background-color: #49bcf6;
     color: white;
 }
+
+.img-preview {
+    width: 400px;
+    height: 400px;
+}

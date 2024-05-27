@@ -24,4 +24,10 @@ class ViewController extends Controller
         $advs = Adv::search($request->searched)->where('is_accepted', true)->paginate(6);
         return view('adv.search', compact('advs'));
     }
+
+    public function setLanguage($lang)
+    {
+        session()->put('locale', $lang);
+        return redirect()->back();
+    }
 }
