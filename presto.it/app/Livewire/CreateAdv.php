@@ -18,6 +18,7 @@ class CreateAdv extends Component
             public $category;
             public $temporary_images;
             public $images = [];
+            public $adv;
 
 
 

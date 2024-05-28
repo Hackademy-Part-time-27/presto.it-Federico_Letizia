@@ -4,7 +4,7 @@
         <img src="https://static.wixstatic.com/media/91a6c3_f478a2fe11f54d9fa489f4f9735d72ca~mv2.png/v1/fill/w_560,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Utkast-11-3.png" class="img-fluid" alt=""> 
     </h1>
 
-    <div class="text-center display-2">
+    <div class="text-center display-2 mb-3">
         {{__('ui.allAdv') }}
     </div>
 
@@ -19,7 +19,7 @@
             @foreach ($advs as $adv)
                 <div class="col-12 col-md-4 d-flex justify-content-center">
                     <div class="card text-center my-3" style="width: 18rem;">
-                        <img src="https://picsum.photos/200" class="card-img-top shadow" alt="...">
+                        <img src="{{!$adv->images()->get()->isEmpty() ? Storage::url($adv->images()->first()->path) : 'https://static.wixstatic.com/media/91a6c3_f478a2fe11f54d9fa489f4f9735d72ca~mv2.png/v1/fill/w_560,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Utkast-11-3.png'}}" class="card-img-top rounded" alt="...">
                         <div class="card-body shadow">
                             <h5 class="card-title fs-2">{{ $adv->title }}</h5>
                             <p class="card-text">{{ $adv->body }}</p>

@@ -1,5 +1,5 @@
 <x-layout>
-    
+
     @if ($adv_to_check)
         <div class="container-fluid p-5 text-center bg-gradient bg-info shadow mb-4">
             <div class="row">
@@ -19,7 +19,7 @@
                     <div class="carousel-inner">
                         @foreach ($adv_to_check->images as $image)
                         <div class="carousel-item @if($loop->first)active @endif">
-                            <img src="{{ Storage::url($image->path) }}" class="img-fluid p-3 rounded">
+                            <img src="{{ Storage::url ($image->path) }}" class="img-fluid p-3 rounded">
                         </div>
                         @endforeach
                     </div>
