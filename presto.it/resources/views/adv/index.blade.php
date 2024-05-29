@@ -13,7 +13,7 @@
                 @forelse ($advs as $adv)
                     <div class="col-12 col-md-4 my-4">
                         <div class="card shadow" style="width: 18rem;">
-                            <img src="{{!$adv->images()->get()->isEmpty() ? Storage::url($adv->images()->first()->path) : 'https://picsum.photo/200'}}" class="card-img-top rounded" alt="...">
+                            <img src="{{!$adv->images()->get()->isEmpty() ? $adv->images()->first()->getUrl(400,300) : 'https://static.wixstatic.com/media/91a6c3_f478a2fe11f54d9fa489f4f9735d72ca~mv2.png/v1/fill/w_560,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Utkast-11-3.png'}}" class="card-img-top p-3 rounded" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $adv->title }}</h5>
                                 <p class="card-text">{{ $adv->body }}</p>

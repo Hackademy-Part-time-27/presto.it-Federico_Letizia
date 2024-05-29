@@ -5,8 +5,10 @@ namespace App\Livewire;
 use App\Models\Adv;
 use Livewire\Component;
 use App\Models\Category;
+use App\Jobs\ResizeImage;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class CreateAdv extends Component
 {
@@ -66,12 +68,17 @@ class CreateAdv extends Component
             {
                 foreach ($this->images as $image)
                 {
-                    $this->adv->images()->create(['path' => $image->store('images', 'public')]);
+                    // $this->adv->images()->create(['path' => $image->store('images', 'public')]);
+                    $newFileName = "advs/{$this->adv->id}";
+                    $newImage = $this->adv->images()->create(['path' => $image->store($newFileName, 'public')]);
+
+                    dispatch(new ResizeImage($newImage->path, 400, 300));
                 }
+
+                File::deleteDirectory(storage_path('app/livewire-tmp'));
             }
 
-            $this->adv->user()->associate(Auth::user());
-            $this->adv->save();
+            Auth::user()->advs()->save($this->adv);
       
 
            /* $category = Category::find($this->category);
