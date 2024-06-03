@@ -7,6 +7,8 @@ use Livewire\Component;
 use App\Models\Category;
 use App\Jobs\ResizeImage;
 use Livewire\WithFileUploads;
+use App\Jobs\GoogleVisionSafeSearch;
+use App\Jobs\GoogleVisionLabelImage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -73,6 +75,9 @@ class CreateAdv extends Component
                     $newImage = $this->adv->images()->create(['path' => $image->store($newFileName, 'public')]);
 
                     dispatch(new ResizeImage($newImage->path, 400, 300));
+                    dispatch(new GoogleVisionSafeSearch($newImage->id));
+                    dispatch(new GoogleVisionLabelImage($newImage->id));
+
                 }
 
                 File::deleteDirectory(storage_path('app/livewire-tmp'));
@@ -92,7 +97,7 @@ class CreateAdv extends Component
 
            
 
-            session()->flash('message', 'Annuncio inserito con successo');
+            session()->flash('message', 'Annuncio inserito con successo, sarà pubblicato dopo la revisione');
 
             $this->reset(['title', 'body','category', 'price', 'temporary_images', 'images']);
         }

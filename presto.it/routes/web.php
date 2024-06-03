@@ -7,6 +7,8 @@ use App\Http\Controllers\RevisorController;
 
 
 Route::get('/', [ViewController::class, 'welcome'])->name('welcome');
+Route::get('/informazioni/autore', [ViewController::class, 'about_me'])->name('about_me');
+
 Route::get('/categoria/{category}', [ViewController::class, 'categoryShow'])->name('categoryShow');
 Route::get('/dettaglio/adv/{adv}', [AdvController::class, 'showAdv'])->name('adv.show');
 Route::get('/tutti/adv', [AdvController::class, 'indexAdv'])->name('adv.index');

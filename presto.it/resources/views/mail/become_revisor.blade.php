@@ -14,6 +14,5 @@
         <p>Clicca qui per accettare</p>
         <a href="{{ route('make.revisor', compact('user')) }}">Accetta</a>
     </div>
-    
 </body>
 </html>

@@ -17,7 +17,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title fs-2">{{$adv->title}}</h5>
                                     <p class="card-text">{{$adv->body}}</p>
-                                    <p class="card-text fs-3">{{$adv->price}}</p>
+                                    <p class="card-text fs-3">€ {{$adv->price}}</p>
                                     <a href="{{route('adv.show', $adv)}}" class="btn btn-info shadow">Visualizza</a>
                                     <p class="card-footer my-2">Pubblicato il: {{$adv->created_at->format('d/m/Y')}}</p>
                                     <p class="card-footer my-2">Autore: {{$adv->user->name ?? ''}}</p>
@@ -26,8 +26,8 @@
                         </div>
                     @empty
                     <div class="col-12">
-                        <div class="h1">Nono ci sono annunci con queste categorie</div>
-                        <div class="h2">Pubblicane uno <a href="{{ route('adv.create')}}" class="btn btn-info fs-4 shadow">Crea annuncio</a></div>
+                        <div class="h1">Nono ci sono annunci con questa categoria</div>
+                        <div class="h2">Pubblicane uno <a href="{{ route('adv.create')}}" class="btn btn-info fs-4 text-white shadow">Crea annuncio</a></div>
                     </div>
                     @endforelse
                 </div>

@@ -30,4 +30,9 @@ class ViewController extends Controller
         session()->put('locale', $lang);
         return redirect()->back();
     }
+
+    public function about_me()
+    {
+        return view('about_me');
+    }
 }

@@ -19,9 +19,10 @@
                     <div class="carousel-inner">
                         @foreach ($adv_to_check->images as $image)
                         <div class="carousel-item @if($loop->first)active @endif">
-                            <img src="{{ Storage::url ($image->path) }}" class="img-fluid p-3 rounded">
+                            <img src="{{ $image->getUrl(400,300) }}" class="img-fluid p-3 rounded">
                         </div>
                         @endforeach
+                        
                     </div>
                     @else
                     <div class="carousel-inner">
@@ -45,11 +46,38 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-
+                <div>
                     <h5 class="card-title mt-3">Titolo: {{$adv_to_check->title}}</h5>
                     <p class="card-text mt-2">Descrizione: {{$adv_to_check->body}}</p>
                     <p class="card-text mt-2">Pubblicato il: {{$adv_to_check->created_at->format('d/m/y')}}
                     <p class="card-footer">Autore: {{ $adv_to_check->user->name }}</p>
+                </div>
+
+                    <h5 class="mt-3 ">Tags</h5>
+                    
+                <div>
+                    <span class="p-2 justify-content-center mb-3 bordered border-bottom border-dark">
+                        @if ($image->labels)
+                            @foreach ($image->labels as $label)
+                                <p class="d-inline">{{$label}},  </p>
+                            @endforeach
+                        @endif
+                    </span>
+                </div>
+
+                        <div>   
+                            <h5 class="mt-4">Revisione immagini</h5>
+
+                            <div class="card-body d-flex justify-content-center text-center">
+                             
+                                <p>Adulti <br><span class="{{$image->adult}} mx-5"></span></p>
+                                <p>Satira <br><span class="{{$image->spoof}} mx-5"></span></p>
+                                <p>Medicina <br><span class="{{$image->medical}} mx-5"></span></p>
+                                <p>Violenza <br><span class="{{$image->violence}} mx-5"></span></p>
+                                <p>Contenuto ammiccante <br><span class="{{$image->racy}} mx-5"></span></p>
+                            </div>
+                        </div>
+                </div>
                     </p>
                     <div class="row">          
                         <div class="col-12 col-md-6 text-center">

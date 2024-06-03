@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="container-fluid text-center bg-info mb-4">
+    <div class="container-fluid text-center bg-gradient bg-info shadow mb-4">
         <div class="">
             <div class="col-12 p-5">
                 <h1 class="display-2">Tutti gli Annunci</h1>
@@ -17,7 +17,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $adv->title }}</h5>
                                 <p class="card-text">{{ $adv->body }}</p>
-                                <p class="card-text">{{ $adv->price }}</p>
+                                <p class="card-text">€ {{ $adv->price }}</p>
                                 <a href="{{ route('adv.show', compact('adv')) }}" class="btn btn-info shadow mb-3">Visualizza</a><br>
                                 <a href="{{ route('categoryShow',['category'=>$adv->category])}}" class="mb-3 border-top pt-2 shadow btn btn-info">Categoria: {{$adv->category->name}}</a>
                                 <p class="card-footer mb-3">Pubblicato il: {{$adv->created_at->format('d/m/y')}}</p>
