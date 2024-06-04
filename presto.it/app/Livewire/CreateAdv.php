@@ -5,10 +5,11 @@ namespace App\Livewire;
 use App\Models\Adv;
 use Livewire\Component;
 use App\Models\Category;
+use App\Jobs\RemoveFaces;
 use App\Jobs\ResizeImage;
 use Livewire\WithFileUploads;
-use App\Jobs\GoogleVisionSafeSearch;
 use App\Jobs\GoogleVisionLabelImage;
+use App\Jobs\GoogleVisionSafeSearch;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -74,9 +75,12 @@ class CreateAdv extends Component
                     $newFileName = "advs/{$this->adv->id}";
                     $newImage = $this->adv->images()->create(['path' => $image->store($newFileName, 'public')]);
 
-                    dispatch(new ResizeImage($newImage->path, 400, 300));
-                    dispatch(new GoogleVisionSafeSearch($newImage->id));
-                    dispatch(new GoogleVisionLabelImage($newImage->id));
+                    RemoveFaces::withChain([
+                        new ResizeImage($newImage->path, 400, 300),
+                        new GoogleVisionSafeSearch($newImage->id),
+                        new GoogleVisionLabelImage($newImage->id)
+                    ])->dispatch($newImage->id);
+                   
 
                 }
 
