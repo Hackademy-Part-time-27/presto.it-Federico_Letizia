@@ -10,6 +10,7 @@ use App\Jobs\ResizeImage;
 use Livewire\WithFileUploads;
 use App\Jobs\GoogleVisionLabelImage;
 use App\Jobs\GoogleVisionSafeSearch;
+use App\Jobs\AddWatermarkToImage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -75,10 +76,15 @@ class CreateAdv extends Component
                     $newFileName = "advs/{$this->adv->id}";
                     $newImage = $this->adv->images()->create(['path' => $image->store($newFileName, 'public')]);
 
+
+                    $imagePath = storage_path('app/public/' . $newImage->path);
+                    $watermarkPath = 'resources/img/presto-logo.png';
+
                     RemoveFaces::withChain([
+                        new AddWatermarkToImage($imagePath, $watermarkPath),
                         new ResizeImage($newImage->path, 400, 300),
                         new GoogleVisionSafeSearch($newImage->id),
-                        new GoogleVisionLabelImage($newImage->id)
+                        new GoogleVisionLabelImage($newImage->id),
                     ])->dispatch($newImage->id);
                    
 

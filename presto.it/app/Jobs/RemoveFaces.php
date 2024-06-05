@@ -48,7 +48,7 @@ class RemoveFaces implements ShouldQueue
 
         $imageAnnotator = new ImageAnnotatorClient();
         $response = $imageAnnotator->faceDetection($image);
-        $faces = $response->getFaceAnnotations();
+        $faces = $response->getFaceAnnotations(); 
 
         foreach ($faces as $face) {
             $vertices = $face->getBoundingPoly()->getVertices();
@@ -64,15 +64,12 @@ class RemoveFaces implements ShouldQueue
             $image = SpatieImage::load($srcPath);
 
             $image->watermark(base_path('resources/img/smile.png'), AlignPosition::TopLeft,
-                                                                    paddingX:$bounds[0][0], paddingY:$bounds[0][1],
-                                                                    width:50,widthUnit:Unit::Percent,
-                                                                    height:50,heightUnit:Unit::Percent,
-                                                                    fit: Fit::Stretch);
-
-            $image->watermark(base_path('resources/img/presto-logo.png'), AlignPosition::BottomRight,
-                                                                          width:100,
-                                                                          height:50,);
-           
+                                                                    paddingX:$bounds[0][0], 
+                                                                    paddingY:$bounds[0][1],
+                                                                    width:$w,
+                                                                    height:$h,
+                                                                    fit: Fit::Stretch
+                                                                );
 
 
             $image->save($srcPath);

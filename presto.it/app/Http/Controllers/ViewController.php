@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Adv;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Jobs\AddWatermarkToImage;
 
 class ViewController extends Controller
 {
@@ -35,4 +36,23 @@ class ViewController extends Controller
     {
         return view('about_me');
     }
+
+    public function addWatermark(Request $request)
+    {
+        $request->validate([
+            'image_id' => 'required|integer|exists:images,id',
+            'watermark' => 'required|image'
+        ]);
+
+        $imageId = $request->input('image_id');
+        $watermark = $request->file('watermark');
+
+        $watermarkPath = $watermark->store('watermarks', 'public');
+
+        
+        AddWatermarkToImage::dispatch($imageId, storage_path('app/public/' . $watermarkPath));
+
+        return response()->json(['message' => 'Watermark job dispatched successfully!']);
+    }
 }
+
