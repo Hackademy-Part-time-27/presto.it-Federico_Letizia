@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav d-flex align-items-center justify-content-center">
             <li class="nav-item mx-1">
-            <a class="nav-link fs-4 hover ms" href="#">Contatti</a>
+            <a class="nav-link fs-4 hover ms" href="{{ route('contatti')}}">Contatti</a>
             </li>
             <li class="nav-item mx-1">
             <a class="nav-link fs-4 hover text-center" href="{{route('about_me')}}">Chi sono</a>
@@ -51,7 +51,7 @@
 
         <form action="{{ route('adv.search') }}" method="get" class="d-flex mx-2">
             <input  name="searched" class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
-            <button type="submit" class="btn btn-info me-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button type="submit" class="btn btn-info shadow me-2"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
 
 

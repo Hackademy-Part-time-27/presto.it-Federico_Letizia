@@ -36,7 +36,7 @@
             </div>
 
             <div class="col-12 mt-3">
-                <button type="submit" class="btn btn-info">Accedi</button>
+                <button type="submit" class="btn btn-info shadow">Accedi</button>
             </div>
         </form>
     </div>

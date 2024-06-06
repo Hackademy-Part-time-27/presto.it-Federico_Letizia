@@ -46,7 +46,7 @@
             </div>
 
             <div class="col-12 mt-3">
-                <button type="submit" class="btn btn-primary">Registrati</button>
+                <button type="submit" class="btn btn-info shadow">Registrati</button>
             </div>
         </form>
     </div>

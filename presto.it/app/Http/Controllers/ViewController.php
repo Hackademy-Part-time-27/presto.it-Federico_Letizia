@@ -54,5 +54,10 @@ class ViewController extends Controller
 
         return response()->json(['message' => 'Watermark job dispatched successfully!']);
     }
+
+    public function contatti()
+    {
+        return view('contatti');
+    }
 }
 
